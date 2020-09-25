@@ -1,7 +1,7 @@
 #version1
 node {
     stage("Initialize") {
-        withCredentials([sshUserPrivateKey(credentialsId: 'Jenkins-master-ssh', keyFileVariable: 'SSHKEY', passphraseVariable: '', usernameVariable: 'SSHUSERNAME')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: 'yourSSHIDhere', keyFileVariable: 'SSHKEY', passphraseVariable: '', usernameVariable: 'SSHUSERNAME')]) {
             sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@yourIphere yum install epel-release -y "
         }
     }
@@ -17,7 +17,7 @@ properties([
 
 node {
     stage("Initialize") {
-        withCredentials([sshUserPrivateKey(credentialsId: 'Jenkins-master-ssh', keyFileVariable: 'SSHKEY', passphraseVariable: '', usernameVariable: 'SSHUSERNAME')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: 'yourSSHIDhere', keyFileVariable: 'SSHKEY', passphraseVariable: '', usernameVariable: 'SSHUSERNAME')]) {
             sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@$params.SSHNODE yum install epel-release -y "
         }
     }
