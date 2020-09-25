@@ -1,29 +1,3 @@
-#version1
-node {
-    stage("Initialize") {
-        withCredentials([sshUserPrivateKey(credentialsId: 'yourSSHIDhere', keyFileVariable: 'SSHKEY', passphraseVariable: '', usernameVariable: 'SSHUSERNAME')]) {
-            sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@yourIphere yum install epel-release -y "
-        }
-    }
-}
-
-#version2
-
-properties([
-    parameters([
-        string(defaultValue: '', description: 'Input node IP', name: 'SSHNODE', trim: true)
-        ])
-    ])
-
-node {
-    stage("Initialize") {
-        withCredentials([sshUserPrivateKey(credentialsId: 'yourSSHIDhere', keyFileVariable: 'SSHKEY', passphraseVariable: '', usernameVariable: 'SSHUSERNAME')]) {
-            sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@$params.SSHNODE yum install epel-release -y "
-        }
-    }
-}
-
-#version3
 properties([
     parameters([
         string(defaultValue: '', description: 'Input node IP', name: 'SSHNODE', trim: true)
