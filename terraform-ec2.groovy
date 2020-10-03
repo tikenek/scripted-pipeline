@@ -23,7 +23,7 @@ else if(params.environment == "prod") {
 }
 
 def tfvar = """
-    s3_bucket = \"tynarbucket\"
+    s3_bucket = \"new-tynar-bucket\"
     s3_folder_project = \"terraform_ec2\"
     s3_folder_region = \"us-east-1\"
     s3_folder_type = \"class\"
