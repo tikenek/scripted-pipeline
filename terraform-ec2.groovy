@@ -47,7 +47,7 @@ def tfvar = """
 node{
     stage("Pull Repo"){
         cleanWs()
-        git url: 'https://github.com/ikambarov/terraform-ec2-by-ami-name.git'
+        git url: 'git@github.com:ikambarov/terraform-ec2-by-ami-name.git'
 
         writeFile file: "${params.environment}.tfvars", text: "${tfvar}"
     }
